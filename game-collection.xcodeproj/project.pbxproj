@@ -14,6 +14,8 @@
 		0439C6471BFEB520000AA8B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0439C6451BFEB520000AA8B3 /* LaunchScreen.storyboard */; };
 		0439C6521BFEB521000AA8B3 /* game_collectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439C6511BFEB521000AA8B3 /* game_collectionTests.swift */; };
 		0439C65D1BFEB521000AA8B3 /* game_collectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439C65C1BFEB521000AA8B3 /* game_collectionUITests.swift */; };
+		049143D41C1654EB00FC2FFA /* GameCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049143D31C1654EB00FC2FFA /* GameCollection.swift */; settings = {ASSET_TAGS = (); }; };
+		049143D61C16566700FC2FFA /* GameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049143D51C16566700FC2FFA /* GameItem.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,9 @@
 		0439C6581BFEB521000AA8B3 /* game-collectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "game-collectionUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0439C65C1BFEB521000AA8B3 /* game_collectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game_collectionUITests.swift; sourceTree = "<group>"; };
 		0439C65E1BFEB521000AA8B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		049143D31C1654EB00FC2FFA /* GameCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollection.swift; sourceTree = "<group>"; };
+		049143D51C16566700FC2FFA /* GameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameItem.swift; sourceTree = "<group>"; };
+		5B1E12C5F74B9B33D35F39AC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +86,7 @@
 				0439C6501BFEB520000AA8B3 /* game-collectionTests */,
 				0439C65B1BFEB521000AA8B3 /* game-collectionUITests */,
 				0439C63A1BFEB520000AA8B3 /* Products */,
+				DDECFBEBC8574834A2EDC35B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,7 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				0439C63C1BFEB520000AA8B3 /* AppDelegate.swift */,
+				049143D31C1654EB00FC2FFA /* GameCollection.swift */,
 				0439C63E1BFEB520000AA8B3 /* ViewController.swift */,
+				049143D51C16566700FC2FFA /* GameItem.swift */,
 				0439C6401BFEB520000AA8B3 /* Main.storyboard */,
 				0439C6431BFEB520000AA8B3 /* Assets.xcassets */,
 				0439C6451BFEB520000AA8B3 /* LaunchScreen.storyboard */,
@@ -123,6 +131,14 @@
 				0439C65E1BFEB521000AA8B3 /* Info.plist */,
 			);
 			path = "game-collectionUITests";
+			sourceTree = "<group>";
+		};
+		DDECFBEBC8574834A2EDC35B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B1E12C5F74B9B33D35F39AC /* Pods.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049143D41C1654EB00FC2FFA /* GameCollection.swift in Sources */,
 				0439C63F1BFEB520000AA8B3 /* ViewController.swift in Sources */,
+				049143D61C16566700FC2FFA /* GameItem.swift in Sources */,
 				0439C63D1BFEB520000AA8B3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +499,7 @@
 				0439C6631BFEB521000AA8B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0439C6641BFEB521000AA8B3 /* Build configuration list for PBXNativeTarget "game-collectionTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +508,7 @@
 				0439C6661BFEB521000AA8B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0439C6671BFEB521000AA8B3 /* Build configuration list for PBXNativeTarget "game-collectionUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +517,7 @@
 				0439C6691BFEB521000AA8B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
