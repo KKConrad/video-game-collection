@@ -19,6 +19,7 @@ class ShowItemViewController: UIViewController {
         
         displayGameTitle.text = game.name
         displayGenre.text = game.genre
+        displayNotes.text = game.notes
     }
 
     override func didReceiveMemoryWarning() {

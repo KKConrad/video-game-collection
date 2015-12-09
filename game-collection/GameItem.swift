@@ -11,4 +11,5 @@ import Foundation
 struct GameItem {
     let name: String
     let genre: String
+    let notes: String
 }

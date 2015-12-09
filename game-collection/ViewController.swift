@@ -21,10 +21,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameCollection.addGame(GameItem(name: "Final Fantasy", genre: "RPG"), system: "Nintendo")
-        gameCollection.addGame(GameItem(name: "Kirby Superstar", genre: "Platforming Action"), system: "Super Nintendo")
-        gameCollection.addGame(GameItem(name: "Sonic The Hedgehog", genre: "Action"), system: "Sega Genesis")
-        gameCollection.addGame(GameItem(name: "Goldeneye 007", genre: "First Person Shooter"), system: "Nintendo 64")
+        gameCollection.addGame(GameItem(name: "Final Fantasy", genre: "RPG", notes: "Fun game to play"), system: "Nintendo")
+        gameCollection.addGame(GameItem(name: "Kirby Superstar", genre: "Platforming Action", notes: "Allows a second player"), system: "Super Nintendo")
+        gameCollection.addGame(GameItem(name: "Sonic The Hedgehog", genre: "Action", notes: "Worst Sonic even though it was the first of it's kind"), system: "Sega Genesis")
+        gameCollection.addGame(GameItem(name: "Goldeneye 007", genre: "First Person Shooter", notes: "Paintball mode"), system: "Nintendo 64")
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

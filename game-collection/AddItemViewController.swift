@@ -20,8 +20,8 @@ class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var notesField: UITextField!
     
     @IBAction func save(sender: AnyObject) {
-        if let gameName = gameTitleField.text, let genre = genreField.text {
-            let game = GameItem(name: gameName, genre: genre)
+        if let gameName = gameTitleField.text, let genre = genreField.text, let notes = notesField.text {
+            let game = GameItem(name: gameName, genre: genre, notes: notes)
             let selectedRow = pickerView.selectedRowInComponent(0)
             let system = gameCollection.sortedSystems()[selectedRow]
             gameCollection.addGame(game, system: system)
