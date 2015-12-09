@@ -55,6 +55,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let controller = segue.destinationViewController as? AddItemViewController {
             controller.gameCollection = self.gameCollection
         }
+        if let controller = segue.destinationViewController as? ShowItemViewController {
+            if let cell = sender as? UITableViewCell {
+                let indexPath = tableView.indexPathForCell(cell)
+                let system = gameCollection.sortedSystems()[indexPath!.section]
+                let games = gameCollection.games[system]!
+                let game = games[indexPath!.row]
+                controller.game = game
+            }
+        }
+        
     }
     
     override func viewDidAppear(animated: Bool) {
