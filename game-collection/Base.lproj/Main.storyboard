@@ -78,7 +78,7 @@
         <!--New System View Controller-->
         <scene sceneID="hSb-1a-GOa">
             <objects>
-                <viewController id="dzK-2T-vrq" customClass="NewSystemViewController" customModule="game_collection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newSystem" id="dzK-2T-vrq" customClass="NewSystemViewController" customModule="game_collection" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0iR-Ko-9iX"/>
                         <viewControllerLayoutGuide type="bottom" id="0Pb-Qx-Ue0"/>
@@ -88,30 +88,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New System or Platform" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wu-Yq-79E">
-                                <rect key="frame" x="55" y="198" width="185" height="21"/>
+                                <rect key="frame" x="32" y="198" width="185" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MQf-z9-5Iu">
-                                <rect key="frame" x="259" y="194" width="208" height="30"/>
+                                <rect key="frame" x="225" y="194" width="208" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="md1-ii-rD6">
+                                <rect key="frame" x="92" y="285" width="34" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="save" destination="dzK-2T-vrq" eventType="touchUpInside" id="hPL-w5-Ndr"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpr-5t-lrf">
-                                <rect key="frame" x="370" y="296" width="48" height="30"/>
+                                <rect key="frame" x="201" y="285" width="48" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <action selector="cancel:" destination="dzK-2T-vrq" eventType="touchUpInside" id="916-zZ-Clc"/>
+                                    <action selector="cancel" destination="dzK-2T-vrq" eventType="touchUpInside" id="qLf-0c-hdE"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="md1-ii-rD6">
-                                <rect key="frame" x="175" y="296" width="34" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Save"/>
                             </button>
                         </subviews>
                         <animations/>

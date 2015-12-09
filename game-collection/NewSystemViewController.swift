@@ -6,7 +6,6 @@
 //  Copyright © 2015 Krizia Conrad. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class NewSystemViewController: UIViewController {
