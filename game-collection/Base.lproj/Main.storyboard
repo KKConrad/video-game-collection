@@ -25,11 +25,11 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NbP-GJ-J9k" id="z9r-Rx-Y6u">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="46.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8op-c6-hlY">
-                                                    <rect key="frame" x="15" y="7" width="31.5" height="19.5"/>
+                                                    <rect key="frame" x="15" y="6" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -37,7 +37,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aJV-jZ-S0l">
-                                                    <rect key="frame" x="15" y="26.5" width="40.5" height="13.5"/>
+                                                    <rect key="frame" x="15" y="26" width="41" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -68,7 +68,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="kz0-cv-Rfs" id="34h-CA-pvp"/>
-                        <segue destination="yKI-UX-hIh" kind="presentation" id="hhH-hg-Tvz"/>
+                        <segue destination="yKI-UX-hIh" kind="presentation" identifier="showGameItem" id="hhH-hg-Tvz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GFL-UP-h4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,7 +131,7 @@
         <!--Add Item View Controller-->
         <scene sceneID="pSc-ql-kdh">
             <objects>
-                <viewController id="yKI-UX-hIh" customClass="AddItemViewController" customModule="game_collection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showGameItem" id="yKI-UX-hIh" customClass="AddItemViewController" customModule="game_collection" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GZX-xr-Ygx"/>
                         <viewControllerLayoutGuide type="bottom" id="DAJ-nz-uy6"/>
@@ -220,8 +220,12 @@
                                 </items>
                             </navigationBar>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X4U-Jn-Sx8">
-                                <rect key="frame" x="0.0" y="119" width="600" height="216"/>
+                                <rect key="frame" x="0.0" y="109" width="600" height="216"/>
                                 <animations/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yKI-UX-hIh" id="vrs-dF-DTi"/>
+                                    <outlet property="delegate" destination="yKI-UX-hIh" id="tsF-em-p4q"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <animations/>
@@ -231,7 +235,6 @@
                         <outlet property="gameTitleField" destination="cez-os-mxq" id="Zjr-GJ-60h"/>
                         <outlet property="genreField" destination="krW-rK-q9o" id="mxO-gQ-s5J"/>
                         <outlet property="notesField" destination="gun-cg-oz4" id="JuQ-X7-oo9"/>
-                        <outlet property="pickerVIew" destination="X4U-Jn-Sx8" id="dTQ-Rz-Uio"/>
                         <outlet property="pickerView" destination="X4U-Jn-Sx8" id="YWs-8N-Hhi"/>
                     </connections>
                 </viewController>
