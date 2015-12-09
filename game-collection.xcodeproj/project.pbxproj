@@ -16,6 +16,8 @@
 		0439C65D1BFEB521000AA8B3 /* game_collectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439C65C1BFEB521000AA8B3 /* game_collectionUITests.swift */; };
 		049143D41C1654EB00FC2FFA /* GameCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049143D31C1654EB00FC2FFA /* GameCollection.swift */; settings = {ASSET_TAGS = (); }; };
 		049143D61C16566700FC2FFA /* GameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049143D51C16566700FC2FFA /* GameItem.swift */; settings = {ASSET_TAGS = (); }; };
+		049CFAB11C17AF4100A2511E /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CFAB01C17AF4100A2511E /* AddItemViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		049CFAB31C17C98200A2511E /* NewSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CFAB21C17C98200A2511E /* NewSystemViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		0439C65E1BFEB521000AA8B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		049143D31C1654EB00FC2FFA /* GameCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollection.swift; sourceTree = "<group>"; };
 		049143D51C16566700FC2FFA /* GameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameItem.swift; sourceTree = "<group>"; };
+		049CFAB01C17AF4100A2511E /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		049CFAB21C17C98200A2511E /* NewSystemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSystemViewController.swift; sourceTree = "<group>"; };
 		5B1E12C5F74B9B33D35F39AC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,6 +115,8 @@
 				0439C6431BFEB520000AA8B3 /* Assets.xcassets */,
 				0439C6451BFEB520000AA8B3 /* LaunchScreen.storyboard */,
 				0439C6481BFEB520000AA8B3 /* Info.plist */,
+				049CFAB01C17AF4100A2511E /* AddItemViewController.swift */,
+				049CFAB21C17C98200A2511E /* NewSystemViewController.swift */,
 			);
 			path = "game-collection";
 			sourceTree = "<group>";
@@ -271,6 +277,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049CFAB31C17C98200A2511E /* NewSystemViewController.swift in Sources */,
+				049CFAB11C17AF4100A2511E /* AddItemViewController.swift in Sources */,
 				049143D41C1654EB00FC2FFA /* GameCollection.swift in Sources */,
 				0439C63F1BFEB520000AA8B3 /* ViewController.swift in Sources */,
 				049143D61C16566700FC2FFA /* GameItem.swift in Sources */,

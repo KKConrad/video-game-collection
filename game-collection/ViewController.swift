@@ -27,7 +27,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         gameCollection.addGame(GameItem(name: "Goldeneye 007", genre: "First Person Shooter"), system: "Nintendo 64")
     }
 
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let system = gameCollection.sortedSystems()[section]
         let games = gameCollection.games[system]!
@@ -61,7 +60,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func add(sender: AnyObject) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+        }
+        alertController.addAction(cancelAction)
+        
+        let addSystem = UIAlertAction(title: "Add System/Platform", style: .Default) { (action) in
+            if let controller = self.storyboard?.instantiateViewControllerWithIdentifier("newSystem") as? NewSystemViewController {
+                controller.gameCollection = self.gameCollection
+                self.presentViewController(controller, animated: true, completion: nil)
+            }
+        }
+        alertController.addAction(addSystem)
+        
+        let addGameItemAction = UIAlertAction(title: "Add Video Game", style: .Default) { (action) in
+            self.performSegueWithIdentifier("showGameItem", sender: self)
+        }
+        alertController.addAction(addGameItemAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
 
 }
 
