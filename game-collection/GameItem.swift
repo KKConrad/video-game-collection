@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class GameItem: NSObject, NSCoding {
     // MARK: Properties
@@ -14,17 +15,19 @@ class GameItem: NSObject, NSCoding {
     var genre: String
     var notes: String
     var system: String
+    var photo: UIImage?
     
     // MARK: Archiving Paths
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("gameItems")
     
     // MARK: Initialization
-    init(name: String, genre: String, notes: String, system: String) {
+    init(name: String, genre: String, notes: String, system: String, photo: UIImage?) {
         self.name = name
         self.genre = genre
         self.notes = notes
         self.system = system
+        self.photo = photo
         super.init()
     }
     
@@ -33,6 +36,7 @@ class GameItem: NSObject, NSCoding {
         static let genreKey = "genre"
         static let notesKey = "notes"
         static let systemKey = "system"
+        static let photoKey = "photo"
     }
     // MARK: NSCoding
     
@@ -41,6 +45,7 @@ class GameItem: NSObject, NSCoding {
         aCoder.encodeObject(genre, forKey: PropertyKey.genreKey)
         aCoder.encodeObject(notes, forKey: PropertyKey.notesKey)
         aCoder.encodeObject(system, forKey: PropertyKey.systemKey)
+        aCoder.encodeObject(photo, forKey: PropertyKey.photoKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -48,7 +53,8 @@ class GameItem: NSObject, NSCoding {
         let genre = aDecoder.decodeObjectForKey(PropertyKey.genreKey) as! String
         let notes = aDecoder.decodeObjectForKey(PropertyKey.notesKey) as! String
         let system = aDecoder.decodeObjectForKey(PropertyKey.systemKey) as! String
-        self.init(name: name, genre: genre, notes: notes, system: system)
+        let photo = aDecoder.decodeObjectForKey(PropertyKey.photoKey) as! UIImage?
+        self.init(name: name, genre: genre, notes: notes, system: system, photo: photo)
     }
 }
 

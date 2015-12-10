@@ -20,6 +20,7 @@ class ShowItemViewController: UIViewController {
         displayGameTitle.text = game.name
         displayGenre.text = game.genre
         displayNotes.text = game.notes
+        displayPhoto.image = game.photo
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +34,7 @@ class ShowItemViewController: UIViewController {
 
     @IBOutlet weak var displayNotes: UITextView!
     
+    @IBOutlet weak var displayPhoto: UIImageView!
     
     
     /*

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var gameCollection: GameCollection!
     
@@ -18,12 +18,13 @@ class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var gameTitleField: UITextField!
     @IBOutlet weak var genreField: UITextField!
     @IBOutlet weak var notesField: UITextField!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     @IBAction func save(sender: AnyObject) {
         if let gameName = gameTitleField.text, let genre = genreField.text, let notes = notesField.text {
             let selectedRow = pickerView.selectedRowInComponent(0)
             let system = gameCollection.sortedSystems()[selectedRow]
-            let game = GameItem(name: gameName, genre: genre, notes: notes, system: system)
+            let game = GameItem(name: gameName, genre: genre, notes: notes, system: system, photo: photoImageView.image)
 
             gameCollection.addGame(game, system: system)
             //calling saveGame function right after user wants to save a game
@@ -50,6 +51,41 @@ class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return gameCollection.sortedSystems()[row]
     }
+    
+
+    
+    @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
+        
+        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
+        let imagePickerController = UIImagePickerController()
+        
+        // Only allow photos to be picked, not taken (doing camera for now.)
+        imagePickerController.sourceType = .Camera
+        
+        // Make sure ViewController is notified when the user picks an image.
+        imagePickerController.delegate = self
+        
+        //This method asks ViewController to present the view controller defined by imagePickerController
+        presentViewController(imagePickerController, animated: true, completion: nil)
+    }
+    
+    // MARK: UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        // The info dictionary contains multiple representations of the image and this uses the original
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        // Set photoImageView to display the selected image. 
+        photoImageView.image = selectedImage
+        
+        // Dismiss the picker. 
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     // MARK: NSCoding
     // saving games for the persisted list
