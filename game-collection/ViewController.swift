@@ -83,6 +83,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let games = gameCollection.games[system]!
                 let game = games[indexPath!.row]
                 controller.game = game
+                controller.gameCollection = gameCollection
+                controller.indexPath = indexPath
+                
             }
         }
         

@@ -18,6 +18,7 @@
 		049143D61C16566700FC2FFA /* GameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049143D51C16566700FC2FFA /* GameItem.swift */; };
 		049CFAB11C17AF4100A2511E /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CFAB01C17AF4100A2511E /* AddItemViewController.swift */; };
 		049CFAB31C17C98200A2511E /* NewSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CFAB21C17C98200A2511E /* NewSystemViewController.swift */; };
+		04D71CD31C1953DB00328452 /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D71CD21C1953DB00328452 /* EditItemViewController.swift */; };
 		04FC7D261C1806DA00CE8A24 /* ShowItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC7D251C1806DA00CE8A24 /* ShowItemViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		049143D51C16566700FC2FFA /* GameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameItem.swift; sourceTree = "<group>"; };
 		049CFAB01C17AF4100A2511E /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		049CFAB21C17C98200A2511E /* NewSystemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSystemViewController.swift; sourceTree = "<group>"; };
+		04D71CD21C1953DB00328452 /* EditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditItemViewController.swift; sourceTree = "<group>"; };
 		04FC7D251C1806DA00CE8A24 /* ShowItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowItemViewController.swift; sourceTree = "<group>"; };
 		5B1E12C5F74B9B33D35F39AC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 				049CFAB01C17AF4100A2511E /* AddItemViewController.swift */,
 				049CFAB21C17C98200A2511E /* NewSystemViewController.swift */,
 				04FC7D251C1806DA00CE8A24 /* ShowItemViewController.swift */,
+				04D71CD21C1953DB00328452 /* EditItemViewController.swift */,
 			);
 			path = "game-collection";
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				049CFAB31C17C98200A2511E /* NewSystemViewController.swift in Sources */,
 				049CFAB11C17AF4100A2511E /* AddItemViewController.swift in Sources */,
 				049143D41C1654EB00FC2FFA /* GameCollection.swift in Sources */,
+				04D71CD31C1953DB00328452 /* EditItemViewController.swift in Sources */,
 				0439C63F1BFEB520000AA8B3 /* ViewController.swift in Sources */,
 				049143D61C16566700FC2FFA /* GameItem.swift in Sources */,
 				0439C63D1BFEB520000AA8B3 /* AppDelegate.swift in Sources */,

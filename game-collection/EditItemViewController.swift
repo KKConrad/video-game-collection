@@ -1,42 +1,48 @@
 //
-//  AddItemViewController.swift
+//  EditItemViewController.swift
 //  game-collection
 //
-//  Created by Krizia Conrad on 12/8/15.
+//  Created by Krizia Conrad on 12/9/15.
 //  Copyright © 2015 Krizia Conrad. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-
-class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditItemViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var game: GameItem!
     var gameCollection: GameCollection!
+    var indexPath: NSIndexPath!
     
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var gameTitleField: UITextField!
-    @IBOutlet weak var genreField: UITextField!
-    @IBOutlet weak var notesField: UITextField!
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var editTitle: UITextField!
+    @IBOutlet weak var editGenre: UITextField!
+    @IBOutlet weak var editNotes: UITextField!
+    @IBOutlet weak var editSystem: UIPickerView!
+    @IBOutlet weak var editPhoto: UIImageView!
     
     @IBAction func save(sender: AnyObject) {
-        if let gameName = gameTitleField.text, let genre = genreField.text, let notes = notesField.text {
-            let selectedRow = pickerView.selectedRowInComponent(0)
-            let system = gameCollection.sortedSystems()[selectedRow]
-            let game = GameItem(name: gameName, genre: genre, notes: notes, system: system, photo: photoImageView.image)
-
-            gameCollection.addGame(game, system: system)
-            //calling saveGame function right after user wants to save a game
+        if let gameName = editTitle.text, let genre = editGenre.text, let notes = editNotes.text, let photo = editPhoto.image {
+            let system = gameCollection.sortedSystems()[indexPath!.section]
+            let games = gameCollection.games[system]!
+//            let game = games[indexPath!.row]
+            gameCollection.games[system]![indexPath!.row].name = gameName
+            gameCollection.games[system]![indexPath!.row].genre = genre
+            gameCollection.games[system]![indexPath!.row].notes = notes
+            gameCollection.games[system]![indexPath!.row].photo = photo
+            
+//            let selectedRow = pickerView.selectedRowInComponent(0)
+//            let system = gameCollection.sortedSystems()[selectedRow]
+//            let game = GameItem(name: gameName, genre: genre, notes: notes, system: system, photo: photoImageView.image)
+//            
+//            gameCollection.addGame(game, system: system)
+       // calling saveGame function right after user wants to save a game
             saveGames()
         }
-        
-        dismissViewControllerAnimated(true, completion: nil)
+        performSegueWithIdentifier("redirectToGameList", sender: sender)
     }
     
-
-    
     //This is the picker view
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -49,7 +55,7 @@ class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return gameCollection.sortedSystems()[row]
     }
     
-
+    
     
     @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
         
@@ -76,10 +82,10 @@ class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // The info dictionary contains multiple representations of the image and this uses the original
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        // Set photoImageView to display the selected image. 
-        photoImageView.image = selectedImage
+        // Set photoImageView to display the selected image.
+        editPhoto.image = selectedImage
         
-        // Dismiss the picker. 
+        // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -102,4 +108,30 @@ class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         view.endEditing(true)
         super.touchesBegan(touches, withEvent: event)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        editTitle.text = game.name
+        editGenre.text = game.genre
+        editNotes.text = game.notes
+        editPhoto.image = game.photo
+        
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

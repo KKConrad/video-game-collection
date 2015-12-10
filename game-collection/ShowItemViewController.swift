@@ -11,6 +11,8 @@ import UIKit
 class ShowItemViewController: UIViewController {
     
     var game: GameItem!
+    var gameCollection: GameCollection!
+    var indexPath: NSIndexPath!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +39,19 @@ class ShowItemViewController: UIViewController {
     @IBOutlet weak var displayPhoto: UIImageView!
     
     
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let controller = segue.destinationViewController as? EditItemViewController {
+            controller.game = self.game
+            controller.gameCollection = self.gameCollection
+            controller.indexPath = self.indexPath
+        }
     }
-    */
+
 
 }
