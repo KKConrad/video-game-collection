@@ -24,18 +24,19 @@ class EditItemViewController: UIViewController, UIPickerViewDataSource, UIPicker
         if let gameName = editTitle.text, let genre = editGenre.text, let notes = editNotes.text, let photo = editPhoto.image {
             let system = gameCollection.sortedSystems()[indexPath!.section]
             let games = gameCollection.games[system]!
+            let selectedRow = editSystem.selectedRowInComponent(0)
+            let selectedSystem = gameCollection.sortedSystems()[selectedRow]
 //            let game = games[indexPath!.row]
             gameCollection.games[system]![indexPath!.row].name = gameName
             gameCollection.games[system]![indexPath!.row].genre = genre
             gameCollection.games[system]![indexPath!.row].notes = notes
+            gameCollection.games[system]![indexPath!.row].system = selectedSystem
             gameCollection.games[system]![indexPath!.row].photo = photo
-            
-//            let selectedRow = pickerView.selectedRowInComponent(0)
-//            let system = gameCollection.sortedSystems()[selectedRow]
-//            let game = GameItem(name: gameName, genre: genre, notes: notes, system: system, photo: photoImageView.image)
-//            
-//            gameCollection.addGame(game, system: system)
-       // calling saveGame function right after user wants to save a game
+
+            // Refreshing system
+            let newGame = gameCollection.games[system]![indexPath!.row]
+            gameCollection.games[system]!.removeAtIndex(indexPath.row)
+            gameCollection.addGame(newGame, system: selectedSystem)
             saveGames()
         }
         performSegueWithIdentifier("redirectToGameList", sender: sender)
