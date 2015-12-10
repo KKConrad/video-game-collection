@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var gameCollection = GameCollection()
+    var defaultPhoto = UIImage(named: "defaultPhoto")
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -41,10 +42,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 gameCollection.addGame(game, system: game.system)
             }
         } else {
-            gameCollection.addGame(GameItem(name: "Final Fantasy", genre: "RPG", notes: "Fun game to play", system: "Nintendo", photo: nil), system: "Nintendo")
-            gameCollection.addGame(GameItem(name: "Kirby Superstar", genre: "Platforming Action", notes: "Allows a second player", system: "Super Nintendo", photo: nil), system: "Super Nintendo")
-            gameCollection.addGame(GameItem(name: "Sonic The Hedgehog", genre: "Action", notes: "Worst Sonic even though it was the first of it's kind", system: "Sega Genesis", photo: nil), system: "Sega Genesis")
-            gameCollection.addGame(GameItem(name: "Goldeneye 007", genre: "First Person Shooter", notes: "Paintball mode", system: "Nintendo 64", photo: nil), system: "Nintendo 64")
+            gameCollection.addGame(GameItem(name: "Super Mario World", genre: "Platform", notes: "Allows a second player", system: "Super Nintendo", photo: defaultPhoto), system: "Super Nintendo")
+            gameCollection.addGame(GameItem(name: "Goldeneye 007", genre: "First Person Shooter", notes: "Paintball mode", system: "Nintendo 64", photo: defaultPhoto), system: "Nintendo 64")
+            gameCollection.addGame(GameItem(name: "Super Mario Bros.", genre: "Platform", notes: "The first in the Mario Bros. series", system: "Nintendo", photo: defaultPhoto), system: "Nintendo")
+            gameCollection.addGame(GameItem(name: "Octodad: Dadliest Catch", genre: "Adventure/Life Simulator", notes: "An excellent game where you have to blend in with society", system: "Playstation 4", photo: defaultPhoto), system: "Playstation 4")
+            gameCollection.addGame(GameItem(name: "League of Legends", genre: "Stategy", notes: "Most positive online community out there", system: "PC", photo: defaultPhoto), system: "PC")
         }
     }
 
