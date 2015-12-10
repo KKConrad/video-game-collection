@@ -37,6 +37,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         if let savedGames = loadGames() {
             for (index, game) in savedGames.enumerate() {
                 gameCollection.addGame(game, system: game.system)
@@ -48,6 +49,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             gameCollection.addGame(GameItem(name: "Octodad: Dadliest Catch", genre: "Adventure/Life Simulator", notes: "An excellent game where you have to blend in with society", system: "Playstation 4", photo: defaultPhoto), system: "Playstation 4")
             gameCollection.addGame(GameItem(name: "League of Legends", genre: "Stategy", notes: "Most positive online community out there", system: "PC", photo: defaultPhoto), system: "PC")
         }
+        
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
