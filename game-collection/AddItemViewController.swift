@@ -95,6 +95,14 @@ class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             print("Failed to save games")
         }
     }
-
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
 }
