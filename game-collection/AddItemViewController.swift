@@ -34,6 +34,10 @@ class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+    @IBAction func cancel(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
     
     //This is the picker view
