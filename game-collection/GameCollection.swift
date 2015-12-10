@@ -26,6 +26,9 @@ class GameCollection: CustomStringConvertible {
         games[system] = gamesForSystem
     }
     
+    func gameList() -> [GameItem] {
+        return [GameItem](games.values.flatten())
+    }
     
     func sortedList(system: String) -> [GameItem] {
         guard let gamesForSystem = games[system] else {

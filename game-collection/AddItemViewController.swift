@@ -21,10 +21,13 @@ class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     @IBAction func save(sender: AnyObject) {
         if let gameName = gameTitleField.text, let genre = genreField.text, let notes = notesField.text {
-            let game = GameItem(name: gameName, genre: genre, notes: notes)
             let selectedRow = pickerView.selectedRowInComponent(0)
             let system = gameCollection.sortedSystems()[selectedRow]
+            let game = GameItem(name: gameName, genre: genre, notes: notes, system: system)
+
             gameCollection.addGame(game, system: system)
+            //calling saveGame function right after user wants to save a game
+            saveGames()
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -47,5 +50,15 @@ class AddItemViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return gameCollection.sortedSystems()[row]
     }
+    
+    // MARK: NSCoding
+    // saving games for the persisted list
+    func saveGames() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(gameCollection.gameList(), toFile: GameItem.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save games")
+        }
+    }
+
     
 }

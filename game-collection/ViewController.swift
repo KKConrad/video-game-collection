@@ -21,10 +21,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameCollection.addGame(GameItem(name: "Final Fantasy", genre: "RPG", notes: "Fun game to play"), system: "Nintendo")
-        gameCollection.addGame(GameItem(name: "Kirby Superstar", genre: "Platforming Action", notes: "Allows a second player"), system: "Super Nintendo")
-        gameCollection.addGame(GameItem(name: "Sonic The Hedgehog", genre: "Action", notes: "Worst Sonic even though it was the first of it's kind"), system: "Sega Genesis")
-        gameCollection.addGame(GameItem(name: "Goldeneye 007", genre: "First Person Shooter", notes: "Paintball mode"), system: "Nintendo 64")
+        if let savedGames = loadGames() {
+            for (index, game) in savedGames.enumerate() {
+                gameCollection.addGame(game, system: game.system)
+            }
+        } else {
+            gameCollection.addGame(GameItem(name: "Final Fantasy", genre: "RPG", notes: "Fun game to play", system: "Nintendo"), system: "Nintendo")
+            gameCollection.addGame(GameItem(name: "Kirby Superstar", genre: "Platforming Action", notes: "Allows a second player", system: "Super Nintendo"), system: "Super Nintendo")
+            gameCollection.addGame(GameItem(name: "Sonic The Hedgehog", genre: "Action", notes: "Worst Sonic even though it was the first of it's kind", system: "Sega Genesis"), system: "Sega Genesis")
+            gameCollection.addGame(GameItem(name: "Goldeneye 007", genre: "First Person Shooter", notes: "Paintball mode", system: "Nintendo 64"), system: "Nintendo 64")
+        }
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,5 +105,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 
+    // MARK: NSCoding
+    // saving games for the persisted list
+    func saveGames() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(gameCollection.games, toFile: GameItem.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save games")
+        }
+    }
+    
+    // loading games from persisted list
+    func loadGames() -> [GameItem]? {
+        // pulling out of storage
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(GameItem.ArchiveURL.path!) as? [GameItem]
+    }
 }
 
